@@ -1,0 +1,12 @@
+cdb() {
+	local ret val
+	ret="$(cdb-back "$@")"
+	val=$?
+	if [ $val -eq 0 ]; then
+		cd "$ret"
+	elif [ $val -eq 3 ]; then
+		echo "$ret"
+	elif [ $val -eq 1 ]; then
+		return 1
+	fi
+}

@@ -1,0 +1,7 @@
+_cdb() {
+	local cur
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	COMPREPLY=(`cdb-bc $cur`)
+	return 0
+}
+complete -o nospace -o filenames -F _cdb cdb
