@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+run_apt_get_install='sudo apt-get install g++ make libboost-all-dev'
+echo 'The binaries g++ and make, and the C++ Boost libraries Filesystem and System are'
+echo 'required. The following command can install them:'
+echo
+echo "$run_apt_get_install"
+echo
+read -p 'Install them now (the command above will be executed) [y/N]? ' a
+if [ "$a" = 'y' ]; then
+    $run_apt_get_install
+fi
+unset a run_apt_get_install
+
 # Build back end
 cur_dir=`pwd`
 cd back-end/src/execs
